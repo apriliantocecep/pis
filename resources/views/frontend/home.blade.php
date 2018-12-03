@@ -105,26 +105,28 @@
           <p>Info lokasi tempat acara dan galeri</p>
         </div>
 
-        @if ($event_this_weekend->location)
-          <div class="row no-gutters">
-            <div class="col-lg-6 venue-map">
-              {!! $event_this_weekend->location->google_map_embed !!}
-            </div>
+        @if ($event_this_weekend)
+          @if ($event_this_weekend->location)
+            <div class="row no-gutters">
+              <div class="col-lg-6 venue-map">
+                {!! $event_this_weekend->location->google_map_embed !!}
+              </div>
 
-            <div
-              class="col-lg-6 venue-info"
-              @if ($event_this_weekend->location->picture)
-                style="background: url({{ asset($event_this_weekend->location->picture->file) }});background-size: cover;"
-              @endif
-            >
-              <div class="row justify-content-center">
-                <div class="col-11 col-lg-8">
-                  <h3>{{ $event_this_weekend->location->name }}</h3>
-                  <p>{{ $event_this_weekend->location->address }}</p>
+              <div
+                class="col-lg-6 venue-info"
+                @if ($event_this_weekend->location->picture)
+                  style="background: url({{ asset($event_this_weekend->location->picture->file) }});background-size: cover;"
+                @endif
+              >
+                <div class="row justify-content-center">
+                  <div class="col-11 col-lg-8">
+                    <h3>{{ $event_this_weekend->location->name }}</h3>
+                    <p>{{ $event_this_weekend->location->address }}</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          @endif
         @endif
 
       </div>
